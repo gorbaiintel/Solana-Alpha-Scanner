@@ -1,0 +1,6 @@
+{
+  "name": "Solana Alpha Scanner",
+  "description": "Production real-time Liquidity Intelligence DApp and Smart Money Scanner for Solana Mainnet and BNB Smart Chain, with live DEX liquidity matrix, risk analysis, and execution router.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

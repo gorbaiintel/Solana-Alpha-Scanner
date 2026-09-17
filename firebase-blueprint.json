@@ -1,0 +1,144 @@
+{
+  "entities": {
+    "token": {
+      "title": "Token",
+      "description": "On-chain token discovery record",
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "decimals": {
+          "type": "number"
+        },
+        "creator": {
+          "type": "string"
+        },
+        "creationTime": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": ["address", "chain", "source"]
+    },
+    "signal": {
+      "title": "Signal",
+      "description": "Real-time trading signal",
+      "type": "object",
+      "properties": {
+        "signalId": {
+          "type": "string"
+        },
+        "tokenAddress": {
+          "type": "string"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "timestamp": {
+          "type": "number"
+        }
+      },
+      "required": ["signalId", "tokenAddress", "chain", "type", "timestamp"]
+    },
+    "position": {
+      "title": "Position",
+      "description": "Trade execution position tracking",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "tokenAddress": {
+          "type": "string"
+        },
+        "side": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "entryPrice": {
+          "type": "number"
+        },
+        "currentPrice": {
+          "type": "number"
+        },
+        "sizeUsd": {
+          "type": "number"
+        },
+        "unrealizedPnlUsd": {
+          "type": "number"
+        },
+        "realizedPnlUsd": {
+          "type": "number"
+        },
+        "openedAt": {
+          "type": "number"
+        }
+      },
+      "required": ["id", "chain", "tokenAddress", "side", "status", "openedAt"]
+    },
+    "auditLog": {
+      "title": "AuditLog",
+      "description": "Immutable security and execution log",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "number"
+        },
+        "details": {
+          "type": "string"
+        }
+      },
+      "required": ["id", "action", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/tokens/{tokenId}": {
+      "schema": "token",
+      "description": "Collection of verified discovered tokens"
+    },
+    "/signals/{signalId}": {
+      "schema": "signal",
+      "description": "Collection of real-time verified market signals"
+    },
+    "/positions/{positionId}": {
+      "schema": "position",
+      "description": "Collection of executed positions"
+    },
+    "/auditLogs/{logId}": {
+      "schema": "auditLog",
+      "description": "Collection of system and execution audit logs"
+    }
+  }
+}
